@@ -25,6 +25,7 @@ public:
     
     String(String& ss) {
         str = new char[strlen(ss.getStr())+1];
+        strcpy(str, ss.getStr());
         size = strlen(ss.getStr()) + 1;
     }
 
@@ -56,4 +57,6 @@ int main() {
 
     String s{"kek"};
     s.print();
+    String d{ s };
+    d.print();
 }
