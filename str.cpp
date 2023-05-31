@@ -37,6 +37,7 @@ public:
     void setStr(const char* s) {
         delete[] str;
         str = new char[strlen(s) + 1];
+        size = strlen(str) + 1;
         strcpy(str, s);
     }
 
