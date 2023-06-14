@@ -52,15 +52,26 @@ public:
     }
     ~String() {
         delete[] this->str;
-        cout << "\nDeString\n";
+        //cout << "\nDeString\n";
     }
 
     String& operator=(const String s2) {
         delete[] str;
-         str = new char[strlen(s2.str) + 1];
-         strcpy(str, s2.str);
-         size = s2.size;
-         return *this;
+        str = new char[strlen(s2.str) + 1];
+        strcpy(str, s2.str);
+        size = s2.size;
+        return *this;
+    }
+    char operator[](int num) {
+        return (char)str[num];
+    }
+    int operator()(char sym) {
+        for (int i = 0; i < size; i++) {
+            if (str[i] == sym) {
+                return i;
+            }
+        }
+        return -1;
     }
 };
 
@@ -81,4 +92,7 @@ int main() {
     String f{ "maybe" };
     s = f;
     s.print();
+    // задание за 5 число
+    cout <<"[]: "  << s[0] << endl;
+    cout << "(): " << s('y') << endl;
 }
