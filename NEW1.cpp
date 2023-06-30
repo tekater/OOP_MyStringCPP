@@ -37,6 +37,7 @@ public:
     void Clear() {
         if (str != nullptr) {
             delete[] str;
+            str = nullptr;
         }
     }
 
